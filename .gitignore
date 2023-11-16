@@ -1,0 +1,6 @@
+.classpath
+.settings/
+bin/
+*.apk
+*.class
+*.ks

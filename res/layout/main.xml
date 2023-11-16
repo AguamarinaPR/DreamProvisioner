@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    >
+
+
+<RelativeLayout android:id="@+id/Bar1" android:background="@drawable/greenbar" android:layout_height="wrap_content" android:layout_width="fill_parent" android:focusableInTouchMode="true" android:focusable="true"><LinearLayout android:id="@+id/LinearLayout01" android:layout_width="wrap_content" android:layout_height="wrap_content">
+<ImageView android:id="@+id/IconView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/icon" android:maxWidth="48px" android:maxHeight="48px" android:layout_marginLeft="10px" android:layout_marginTop="5px"></ImageView><TextView android:id="@+id/TextView01" android:layout_below="@id/IconView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dream Provisioner" android:layout_marginLeft="10px" android:textStyle="bold" android:minWidth="131px" android:layout_marginTop="20px" android:textColor="#FFFFFF"></TextView>
+</LinearLayout>
+
+</RelativeLayout><TextView android:id="@+id/TextView02" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#000000" android:layout_margin="10px" android:text="Welcome to the Dream Provisioner\nTapping the button below will provision your T-Mobile G1.\nIf you do not want to do this, press the back button.\nThis tool is experimental and we are not liable for any damages that might be caused by it."></TextView><Button android:id="@+id/Activation" android:layout_height="wrap_content" android:layout_gravity="center" android:text="Provision device" android:layout_width="160px"></Button><TextView android:id="@+id/TextView03" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="The Dream Provisioner is designed for the T-Mobile G1 Handset ONLY." android:padding="10px" android:textColor="#000000"></TextView>
+
+
+
+
+
+
+<TextView android:id="@+id/DoneText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:visibility="invisible"></TextView>
+</LinearLayout>

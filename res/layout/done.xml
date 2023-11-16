@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+
+<RelativeLayout android:id="@+id/Bar2" android:background="@drawable/greenbar" android:layout_height="wrap_content" android:layout_width="fill_parent"><LinearLayout android:id="@+id/LinearLayout01" android:focusableInTouchMode="true" android:focusable="true" android:layout_width="wrap_content" android:layout_height="wrap_content">
+<ImageView android:id="@+id/IconView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:background="@drawable/icon" android:maxWidth="48px" android:maxHeight="48px" android:layout_marginLeft="10px" android:layout_marginTop="5px"></ImageView><TextView android:id="@+id/TextView01" android:layout_below="@id/IconView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Dream Provisioner" android:layout_marginLeft="10px" android:textStyle="bold" android:minWidth="131px" android:layout_marginTop="20px" android:textColor="#FFFFFF"></TextView>
+</LinearLayout>
+
+
+
+
+</RelativeLayout><ScrollView android:id="@+id/ScrollView01" android:layout_width="wrap_content" android:layout_height="wrap_content"><LinearLayout android:id="@+id/LinearLayout02" android:layout_below="@id/LinearLayout01" android:layout_width="wrap_content" android:layout_height="wrap_content" android:orientation="vertical" android:scrollbarAlwaysDrawVerticalTrack="true" android:scrollbars="vertical"><TextView android:id="@+id/DoneText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#000000" android:layout_margin="10px" android:textStyle="bold" android:gravity="center" android:layout_gravity="center" android:text="The Device has been provisioned.\nTo continue bypassing the setup, type:\n\ntelnetd\n\nAnd press enter or your device\'s keyboard"></TextView><EditText android:id="@+id/GuideBox" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_gravity="center" android:longClickable="false" android:linksClickable="false" android:singleLine="true" android:hint="Tap to see what you are typing  "></EditText><TextView android:id="@+id/WillClose" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#000000" android:layout_margin="10px" android:textStyle="bold" android:gravity="center" android:layout_gravity="center" android:text="Afterwards, if your handset is connected to your computer, type \n\nadb forward tcp:2323 tcp:23\n\ninto your computer\'s terminal and press enter, then you can run telnet on your computer and connect to your handset by running:\n\ntelnet 127.0.0.1 2323\n\nOnce you have done this, you will have a root shell from which you can run superuser commands, now list the running processes by executing\n\nps\n\non the telnet shell and look for the processes with the name of \n\ncom.android.setupwizard\n\nwhich will show a PID next to the name of the user running the process, you can then type\n\nkill (PID of com.android.setupwizard)\n\nto kill the process or processes.\nNow press the home button and you will see the home screen if everything went well.\n\nYou should now be able to use your handset normally.\n\n\n"></TextView></LinearLayout></ScrollView>
+
+
+</LinearLayout>
+
+
+
+
+
+
