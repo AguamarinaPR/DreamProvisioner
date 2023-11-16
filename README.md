@@ -34,7 +34,7 @@ When I did this I used an inactive SIM card to bypass the no SIM card lock scree
 
 1.  On your handset, slide open the keyboard, press **enter** and then type: `setprop persist.service.adb.enable 1` and press enter again. you can tap through to the google account setup screen to see what you are typing.
 2.  This will enable your phone to connect to your computer via ADB, go to your computer's terminal and run "adb install dreamprovisioner.apk" (assuming dreamprovisioner.apk is in the same directory as ADB).
-3.  Then, run the command `adb shell am start -a android.intent.action.MAIN -n com.aguamarina.provisioner/.Provision` to start the Dream Provisioner on your handset, which can guide you through the next steps, or you can continue reading here.
+3.  Then, run the command ```adb shell am start -a android.intent.action.MAIN -n com.aguamarina.provisioner/.Provision``` to start the Dream Provisioner on your handset, which can guide you through the next steps, or you can continue reading here.
 4.  Press the provision button on your handset's screen.
 5.  Now, slide open your handset's keyboard and press enter, then type `telnetd` and press enter again.
 6.  Afterwards, if your handset is connected to your computer, type `adb forward tcp:2323 tcp:23` into your computer's terminal and press enter.
