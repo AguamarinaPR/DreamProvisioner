@@ -27,13 +27,44 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 package com.aguamarina.provisioner;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.view.Menu;
+import android.view.MenuItem;
 
 public class Done extends Activity {
+    private static final int MENU_SETTINGS = 1;
+    private static final int MENU_SETTINGS_EXPLICIT = 2;
 
     @Override
     public void onCreate(Bundle icicle) {
     	super.onCreate(icicle);
     	setContentView(R.layout.done);
+    }
+
+    // Menu Handling
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(1, MENU_SETTINGS, 1, "Settings")
+            .setIcon(android.R.drawable.ic_menu_preferences);
+        menu.add(2, MENU_SETTINGS_EXPLICIT, 2, "Settings (Explicit)")
+            .setIcon(android.R.drawable.ic_menu_preferences);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case MENU_SETTINGS:
+                startActivity(new Intent(Settings.ACTION_SETTINGS));
+                return true;
+            case MENU_SETTINGS_EXPLICIT:
+                Intent i = new Intent(Intent.ACTION_MAIN);
+                i.setClassName("com.android.settings", "com.android.settings.Settings");
+                startActivity(i);
+                return true;
+        }
+        return false;
     }
 }
