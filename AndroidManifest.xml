@@ -13,7 +13,7 @@
         <activity android:name="Done1_1"/>
     </application>
 <uses-permission android:name="android.permission.SET_PREFERRED_APPLICATIONS">
-</uses-permission><uses-permission android:name="android.permission.WRITE_SETTINGS"></uses-permission>
+</uses-permission><uses-permission android:name="android.permission.WRITE_SETTINGS"></uses-permission><uses-permission android:name="android.permission.RESTART_PACKAGES"></uses-permission>
 
 
 
