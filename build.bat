@@ -16,7 +16,7 @@ echo [1/6] Generating R.java
 "%TOOLS%\aapt.exe" package -f -m -J gen -M AndroidManifest.xml -S res -I "%ANDROIDJAR%" || goto :fail
 
 echo [2/6] Compiling Java
-"%JDK%\javac.exe" -source 1.5 -target 1.5 -bootclasspath "%ANDROIDJAR%" -d bin gen\com\aguamarina\provisioner\R.java src\com\aguamarina\provisioner\Provision.java src\com\aguamarina\provisioner\Done.java || goto :fail
+"%JDK%\javac.exe" -source 1.5 -target 1.5 -bootclasspath "%ANDROIDJAR%" -d bin gen\com\aguamarina\provisioner\R.java src\com\aguamarina\provisioner\Provision.java src\com\aguamarina\provisioner\Done1_0.java src\com\aguamarina\provisioner\Done1_1.java || goto :fail
 
 echo [3/6] Converting to dex
 "%JDK%\java.exe" -jar "%TOOLS%\lib\dx.jar" --dex --output=classes.dex bin || goto :fail
