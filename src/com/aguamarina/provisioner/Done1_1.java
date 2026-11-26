@@ -112,7 +112,7 @@ public class Done1_1 extends Activity {
     // Menu Handling
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(1, MENU_SETTINGS, 1, "Settings")
+        menu.add(1, MENU_SETTINGS, 1, "Open System Settings")
             .setIcon(android.R.drawable.ic_menu_preferences);
         return true;
     }

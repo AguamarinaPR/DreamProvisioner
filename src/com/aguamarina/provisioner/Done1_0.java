@@ -34,9 +34,29 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class Done1_0 extends Activity {
+    private static final int MENU_SETTINGS = 1;
+
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         setContentView(R.layout.done1_0);
+    }
+
+    // Menu Handling
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(1, MENU_SETTINGS, 1, "Open System Settings")
+            .setIcon(android.R.drawable.ic_menu_preferences);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case MENU_SETTINGS:
+                startActivity(new Intent(Settings.ACTION_SETTINGS));
+                return true;
+        }
+        return false;
     }
 }
