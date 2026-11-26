@@ -4,4 +4,6 @@ bin/
 gen/
 *.apk
 *.class
-*.ks
+*.ks\
+classes.dex
+my.keystore
