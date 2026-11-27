@@ -58,11 +58,7 @@ public class Provision extends Activity {
                 // Provision the device
                 Settings.System.putInt(getContentResolver(), "setup_wizard_has_run", 1);
                 Settings.System.putInt(getContentResolver(), "device_provisioned", 1);
-                if (Integer.parseInt(Build.VERSION.SDK) >= 2) {
-                    startActivity(new Intent(Provision.this, Done1_1.class));
-                } else {
-                    startActivity(new Intent(Provision.this, Done1_0.class));
-                }
+                startActivity(new Intent(Provision.this, Done.class));
             }
         });
     }

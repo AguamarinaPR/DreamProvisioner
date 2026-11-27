@@ -27,7 +27,6 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 package com.aguamarina.provisioner;
 
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -39,7 +38,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class Done1_1 extends Activity {
+public class Done extends Activity {
     private static final int MENU_SETTINGS = 1;
 
     private String describe(Exception e) {
@@ -86,7 +85,7 @@ public class Done1_1 extends Activity {
             Object svc = amn.getMethod("getDefault").invoke(null);
             Class<?> iam = Class.forName("android.app.IActivityManager");
             iam.getMethod("restartPackage", String.class).invoke(svc, pkg);
-            return pkg + ": Killing process with IActivityManager!";
+            return pkg + ": Killing process with IActivityManager";
         } catch (Exception e) {
             return pkg + ": failed (" + describe(e) + ")";
         }
@@ -95,7 +94,7 @@ public class Done1_1 extends Activity {
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
-        setContentView(R.layout.done1_1);
+        setContentView(R.layout.done);
 
         final Button openLauncherBtn = (Button) findViewById(R.id.OpenLauncher);
         openLauncherBtn.setOnClickListener(new View.OnClickListener() {
