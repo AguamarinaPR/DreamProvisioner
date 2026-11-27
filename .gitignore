@@ -1,6 +1,10 @@
+.vscode
 .classpath
 .settings/
 bin/
+gen/
 *.apk
 *.class
-*.ks
+*.ks\
+classes.dex
+my.keystore

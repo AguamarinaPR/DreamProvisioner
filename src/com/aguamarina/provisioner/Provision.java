@@ -28,6 +28,7 @@ package com.aguamarina.provisioner;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.os.Build;
 import android.os.Bundle;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -36,51 +37,61 @@ import android.widget.Button;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 public class Provision extends Activity {
-    private static final int MENU_ABOUT = 1;
+    private static final int MENU_SETTINGS = 1;
+    private static final int MENU_ABOUT = 2;
 
     @Override
     public void onCreate(Bundle icicle) {
-    	super.onCreate(icicle);
-    	setContentView(R.layout.main);
+        super.onCreate(icicle);
+        setContentView(R.layout.main);
+
+        String p = Settings.System.getString(getContentResolver(), "device_provisioned");
+        String w = Settings.System.getString(getContentResolver(), "setup_wizard_has_run");
+        Toast.makeText(this, "Current state: provisioned=" + p + ", wizard=" + w, Toast.LENGTH_LONG).show();
+
         final Button activation = (Button) findViewById(R.id.Activation);
         activation.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 // Provision the device
-            	Settings.System.putInt(getContentResolver(), "setup_wizard_has_run", 1);
-            	Settings.System.putInt(getContentResolver(), "device_provisioned", 1);
-            	startActivity(new Intent(Provision.this,Done.class));
+                Settings.System.putInt(getContentResolver(), "setup_wizard_has_run", 1);
+                Settings.System.putInt(getContentResolver(), "device_provisioned", 1);
+                startActivity(new Intent(Provision.this, Done.class));
             }
         });
     }
     
     // Menu Handling
     @Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-	    menu.add(1, MENU_ABOUT, 1, "About")
-	        .setIcon(android.R.drawable.ic_menu_info_details);
-	    return true;
-	}
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(1, MENU_SETTINGS, 1, "Open System Settings")
+            .setIcon(android.R.drawable.ic_menu_preferences);
+        menu.add(2, MENU_ABOUT, 2, "About")
+            .setIcon(android.R.drawable.ic_menu_info_details);
+        return true;
+    }
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-	    switch (item.getItemId()){
-	    case MENU_ABOUT:
-	        AlertDialog.Builder aboutnotif = new AlertDialog.Builder(this);
-	        aboutnotif.setIcon(R.drawable.icon)
-	                  .setTitle("Dream Provisioner")
-	                  .setMessage("The Dream Provisioner is a tool only for activating a T-Mobile G1 handset.\n\nThe Dream Provisioner is part of the Aguamarina project which aims to revitalize legacy android devices, found on GitHub under the organization AguamarinaPR")
-	                  .setNeutralButton("Ok", new DialogInterface.OnClickListener() {
-	                      public void onClick(DialogInterface dialog, int id) {
-	                           dialog.cancel();
-	                   }
-	               });
-	        aboutnotif.show();
-	        return true;
-	    }
-	    return false;
-	
-
-	}
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case MENU_SETTINGS:
+                startActivity(new Intent(Settings.ACTION_SETTINGS));
+                return true;
+            case MENU_ABOUT:
+                AlertDialog.Builder aboutnotif = new AlertDialog.Builder(this);
+                aboutnotif.setIcon(R.drawable.icon)
+                        .setTitle("Dream Provisioner")
+                        .setMessage("The Dream Provisioner is a tool only for activating a T-Mobile G1 handset.\n\nThe Dream Provisioner is part of the Aguamarina project which aims to revitalize legacy android devices, found on GitHub under the organization AguamarinaPR")
+                        .setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                        }
+                    });
+                aboutnotif.show();
+                return true;
+        }
+        return false;
+    }
 }
