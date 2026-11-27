@@ -3,7 +3,7 @@ The Dream Provisioner is a tool for provisioning T-Mobile G1 devices. Here's two
 
 ## Method 1: Shell exploit [WORKS ONLY ON ANDROID 1.0 (RC29)]
 
-### Part 1: Flashing T-Mobile G1 ROM version RC29, if not already installed.
+### Part 1: Flashing T-Mobile G1 ROM version RC29, if not already installed
   
 You will need [DREAIMG.nbh](http://archive.org/download/DREAIMG/DREAIMG.nbh), which is the file containing RC29 with Android 1.0.  
   
@@ -19,7 +19,7 @@ RC29 or lower is required for this due to a root shell always being open, which 
 8.  Attempt to reboot by holding the **Call, Menu and Power** butttons. If this doesn't work, remove the battery and insert it again.
 9.  Start the phone up, and you can now see that it is running Android 1.0 with the RC29 rom, however, you're not done yet.
 
-### Part 2: Bypassing the setup wizard using shell exploit
+### Part 2: Running the provisioner
 
 The unskippable setup wizard presents a problem, since you can't use the phone without completing it, and you likely can't complete it as of 2023.  
 
